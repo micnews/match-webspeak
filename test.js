@@ -18,6 +18,7 @@ testString('True!', 'true!', true, 'is not case sensitive');
 testString('True!', 'True', true, 'does not require punctuation');
 testString('True!', 'True.', true, 'accepts choices of punctuation (endings)');
 testString('True ', 'True-', true, 'accepts choices of punctuation (division)');
+testString('True ', 'True-', true, 'accepts lack of apostrophes');
 testString('True!', 'Truth!', false, 'does not accept different characters');
 testString('True!', 'Trueish!', false, 'does not accept more characters');
 testString('True!', 'Tru!', false, 'does not accept fewer characters');
