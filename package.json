@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/micnews/match-webspeak.git"
   },
-  "author": "ryanscottaudio",
-  "license": "ISC",
+  "author": "mic.com",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/micnews/match-webspeak/issues"
   },
