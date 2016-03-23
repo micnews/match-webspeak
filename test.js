@@ -26,3 +26,4 @@ testString('True!', 'Trueish!', false, 'does not accept more characters');
 testString('True!', 'Tru!', false, 'does not accept fewer characters');
 
 testString(['True!', 'Sure!'], 'True!', true, 'accepts one response from options');
+testString(['True!', 'Sure!'], 'No!', false, 'rejects response if not in options');
