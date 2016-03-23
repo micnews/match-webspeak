@@ -1,28 +1,28 @@
 'use strict';
 
+var charsEnd = ['?', '!', '.'];
+var charsApostrophe = ['\''];
+var charsDivide = ['-', ' '];
+var charSets = [charsEnd, charsApostrophe, charsDivide];
+
+function regexpify (string) {
+  charSets.forEach(function (chars) {
+    var toReplace = new RegExp('\\' + chars.join('|\\'));
+    var replaceWith = '(\\' + chars.join('|\\') + ')?';
+    string = string.split(toReplace).join(replaceWith);
+  });
+  return string;
+}
+
 module.exports = function (string, response, splitter) {
-  var charsEnd = ['?', '!', '.'];
-  var charsApostrophe = ['\''];
-  var charsDivide = ['-', ' '];
-  var charSets = [charsEnd, charsApostrophe, charsDivide];
   var newString = [];
   if (splitter) {
     string.split(splitter).forEach(function (option) {
-      charSets.forEach(function (chars) {
-        var toReplace = new RegExp('\\' + chars.join('|\\'));
-        var replaceWith = '(\\' + chars.join('|\\') + ')?';
-        option = option.split(toReplace).join(replaceWith);
-      });
-      newString.push('^' + option + '$');
+      newString.push('^' + regexpify(option) + '$');
     });
-    return new RegExp(newString.join('|'), 'i');
+    newString = newString.join('|');
   } else {
-    charSets.forEach(function (chars) {
-      var toReplace = new RegExp('\\' + chars.join('|\\'));
-      var replaceWith = '(\\' + chars.join('|\\') + ')?';
-      string = string.split(toReplace).join(replaceWith);
-    });
-    newString.push('^' + string + '$');
-    return new RegExp(newString, 'i').test(response);
+    newString.push('^' + regexpify(string) + '$');
   }
+  return new RegExp(newString, 'i').test(response);
 };
