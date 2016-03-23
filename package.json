@@ -4,7 +4,7 @@
   "description": "Tests properly formatted text against webspeak responses from users.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/micnews/match-webspeak/issues"
   },
-  "homepage": "https://github.com/micnews/match-webspeak#readme"
+  "homepage": "https://github.com/micnews/match-webspeak#readme",
+  "devDependencies": {
+    "tape": "^4.5.1"
+  }
 }
