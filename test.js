@@ -4,25 +4,12 @@ var test = require('tape');
 var ok = require('assert').ok;
 var match = require('./index');
 
-function testString () {
-  ok(arguments.length === 4 || arguments.length === 5, 'you need more/fewer arguments');
-  var string = arguments[0];
-  var reply = arguments[1];
-  var splitter;
-  var result;
-  var name;
-  if (arguments.length === 4) {
-    result = arguments[2];
-    name = arguments[3];
-  } else if (arguments.length === 5) {
-    splitter = arguments[2];
-    result = arguments[3];
-    name = arguments[4];
-  }
-  name = name || string + ' vs ' + reply + ' should be ' + result;
+function testString (toTest, reply, result, name) {
+  ok(arguments.length === 4, 'you need more/fewer arguments');
+  name = name || toTest + ' vs ' + reply + ' should be ' + result;
   test(name, function (t) {
     var expected = result;
-    var actual = match(string, reply, splitter);
+    var actual = match(toTest, reply);
     t.equal(actual, expected);
     t.end();
   });
@@ -38,4 +25,4 @@ testString('True!', 'Truth!', false, 'does not accept different characters');
 testString('True!', 'Trueish!', false, 'does not accept more characters');
 testString('True!', 'Tru!', false, 'does not accept fewer characters');
 
-testString('True! | Sure!', 'True!', ' | ', true, 'accepts one response from options');
+testString(['True!', 'Sure!'], 'True!', true, 'accepts one response from options');

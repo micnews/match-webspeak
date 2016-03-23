@@ -14,15 +14,15 @@ function regexpify (string) {
   return string;
 }
 
-module.exports = function (string, response, splitter) {
+module.exports = function (toTest, response) {
   var newString = [];
-  if (splitter) {
-    string.split(splitter).forEach(function (option) {
+  if (Array.isArray(toTest)) {
+    toTest.forEach(function (option) {
       newString.push('^' + regexpify(option) + '$');
     });
     newString = newString.join('|');
   } else {
-    newString.push('^' + regexpify(string) + '$');
+    newString.push('^' + regexpify(toTest) + '$');
   }
   return new RegExp(newString, 'i').test(response);
 };
