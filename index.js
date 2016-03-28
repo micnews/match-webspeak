@@ -10,7 +10,7 @@ function regexpify (string) {
     string = string.split(toReplace).join(replaceWith);
   });
   abbreviations.forEach(function (words) {
-    var toReplace = new RegExp('\\' + words.join('|\\'), 'i');
+    var toReplace = new RegExp(words[0], 'i');
     var replaceWith = '(' + words.join('|') + ')';
     string = string.split(toReplace).join(replaceWith);
   });
