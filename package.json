@@ -1,6 +1,6 @@
 {
   "name": "match-webspeak",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Tests properly formatted text against webspeak responses from users.",
   "main": "index.js",
   "scripts": {
