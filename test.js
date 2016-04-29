@@ -38,3 +38,6 @@ testString('Cake.', 'CaOKAYe.', false, 'does not accept abbreviation matches in 
 
 testString(['True!', 'Sure!'], 'True!', true, 'accepts one response from options');
 testString(['True!', 'Sure!'], 'No!', false, 'rejects response if not in options');
+
+testString('Oh really?', 'Oh really now?', false, 'can differentiate between "Oh really?" and "Oh really now?"');
+testString('Oh really now?', 'Oh really?', false, 'can differentiate between "Oh really now?" and "Oh really?"');
