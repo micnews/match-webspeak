@@ -24,5 +24,6 @@ module.exports = function (toTest, response) {
     newString.push('^' + regexpify(option) + '$');
   });
   newString = newString.join('|');
+  console.log(newString);
   return new RegExp(newString, 'i').test(response);
 };

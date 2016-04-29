@@ -28,6 +28,7 @@ testString('True!', 'True.', true, 'accepts choices of punctuation (endings)');
 testString('True ', 'True-', true, 'accepts choices of punctuation (division)');
 testString('That\'s mine!', 'Thats mine!', true, 'accepts lack of apostrophes');
 testString('That\'s mine!', 'Thats-mine?', true, 'accepts multiple punctiation changes at the same time');
+testString('true', 'trueee', true, 'accepts repetition of last letter');
 
 testString('You are okay people.', ['U are okay people.', 'u are okay people.'], true, 'accepts abreviations of "You"');
 testString('You are okay people.', 'You r okay people.', true, 'accepts abreviations of "Are"');
