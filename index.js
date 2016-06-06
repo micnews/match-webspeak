@@ -4,6 +4,7 @@ var charSets = require('./character-sets');
 var abbreviations = require('./abbreviations');
 
 function regexpify (string) {
+  string = string.replace('*', '\\*');
   charSets.forEach(function (chars) {
     var toReplace = new RegExp('\\' + chars.join('|\\'), 'i');
     var replaceWith = '(\\' + chars.join('|\\') + ')?';

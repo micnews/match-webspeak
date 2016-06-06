@@ -41,3 +41,5 @@ testString(['True!', 'Sure!'], 'No!', false, 'rejects response if not in options
 
 testString('Oh really?', 'Oh really now?', false, 'can differentiate between "Oh really?" and "Oh really now?"');
 testString('Oh really now?', 'Oh really?', false, 'can differentiate between "Oh really now?" and "Oh really?"');
+
+testString('He\'s an a**', 'He\'s an a**', true, 'escapes asterisks (*) correctly');
